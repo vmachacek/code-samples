@@ -10,7 +10,7 @@ namespace ProcessingPipeline.Tests.PipelineExecutor
     public class PipelineExecutorTests
     {
         [Fact]
-        public async Task run_all_tasks_in_pipeline()
+        public async Task run_all_tasks()
         {
             var spy = new PipelineBuilderSpy();
 

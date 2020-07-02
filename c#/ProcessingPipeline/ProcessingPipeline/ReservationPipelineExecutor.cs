@@ -9,7 +9,7 @@
 
     public class ReservationPipelineExecutor
     {
-        private readonly PipelineBuilder _pipelineBuilder;
+        private readonly IPipelineBuilder _pipelineBuilder;
         private readonly ILogger<ReservationPipelineExecutor> _logger;
         private ReservationProcessingContext _context;
         private List<IReservationProcessingMiddleware> _pipeline;
@@ -17,7 +17,7 @@
         private readonly Func<Task> _emptyNextFunction = () => Task.FromResult(true);
 
         public ReservationPipelineExecutor(
-            PipelineBuilder pipelineBuilder,
+            IPipelineBuilder pipelineBuilder,
             ILogger<ReservationPipelineExecutor> logger
             )
         {
@@ -48,6 +48,8 @@
         private async Task RunAllMiddleware(IReservationProcessingMiddleware pipelineStep, int index = 0)
         {
             var isLast = index == _pipeline.Count - 1;
+
+            index++; 
 
             Func<Task> nextMiddleWareFunction = isLast
                 ? _emptyNextFunction
