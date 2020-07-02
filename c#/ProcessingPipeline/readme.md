@@ -10,4 +10,4 @@ Whole pipeline is executed synchronously from http standpoint which could be pot
 ### Testing
 Each step is unit tested. Services like SendEmail, NotifySlack, GenerateEmail don't have interfaces, instead I'm providing HttpClient with test messageHandler which contains canned data. That way I’m testing everything up to http boundary. 
 
-Underlaying database is MongoDb and it's better to use actual mongo instance for unit tests, rather than faking `IMongoQueriable<T>`, because it's not guaranteed fakes would act same as actual MongoDB. Because of that I'm running instance of mongo with random database name for unit tests. That way its 100% tested it will work on environment with real database. 
+Underlaying database is MongoDb and it's better to use actual mongo instance for unit tests, rather than faking `IMongoQueriable<T>`, because it's not guaranteed fakes would act same as actual MongoDB. Because of that I'm running instance of mongo with random database name for unit tests inside docker. That way its 100% tested it will work on environment with real database. 
