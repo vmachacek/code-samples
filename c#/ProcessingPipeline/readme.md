@@ -1,6 +1,6 @@
 ## ProcessingPipeline
 
-ACME company is using ProcessingPipeline to process their reservations posted from their website. IT department have to make sure they are sending correct email, charging credit cards, saving all data to db. etc. 
+ACME company is using ProcessingPipeline to process their reservations posted from their website. Task consits of sending emails, charging credit cards, generating tickets, etc. 
 
 ProcessingPipeline is implemented as chain of responsibility / middleware pattern. Class `PipelineBuilder` based on posted data sets up the pipeline for current invocation. `ReservationPipelineExecutor` is class responsible for executing generated pipeline.
 
