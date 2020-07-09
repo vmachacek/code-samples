@@ -2,7 +2,7 @@
 
 ACME company is using ProcessingPipeline to process their reservations posted from their website. Task consits of sending emails, charging credit cards, generating tickets, etc. 
 
-ProcessingPipeline is implemented as chain of responsibility / middleware pattern. Class `PipelineBuilder` based on posted data sets up the pipeline for current invocation. `ReservationPipelineExecutor` is class responsible for executing generated pipeline.
+ProcessingPipeline is implemented as a chain of responsibility / middleware pattern. Class `PipelineBuilder` based on posted data sets up the pipeline for current invocation. `ReservationPipelineExecutor` is class responsible for executing generated pipeline.
 
 ### Architecture and considered alternatives
 Whole pipeline is executed synchronously from http standpoint which could be potential bottleneck however this approach was selected to fit size and load of ACME corporation which deals with hundreds and sometimes thousands of reservations per day. This could be further improved with publish-subscribe messaging - offloading some of the work to different services and scaling it independently. 
